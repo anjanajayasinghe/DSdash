@@ -59,8 +59,8 @@ with kpi_col1:
     st.markdown(f'<div class="kpi-card"><h3>Average LTV</h3><p>${avg_ltv:,.2f}</p></div>', unsafe_allow_html=True)
 
 with kpi_col2:
-    avg_credit_balance = filtered_data['CREDIT_BALANCE'].mean()
-    st.markdown(f'<div class="kpi-card"><h3>Insurance Purchased Percentage</h3><p>${avg_credit_balance:,.2f}</p></div>', unsafe_allow_html=True)
+    purchase_percentage = (filtered_data['BUY_INSURANCE'].value_counts(normalize=True).get('Yes', 0)) * 100
+    st.markdown(f'<div class="kpi-card"><h3>Insurance Purchased Percentage</h3><p>{purchase_percentage:.2f}%</p></div>', unsafe_allow_html=True)
 with kpi_col4:
     avg_salary = filtered_data['SALARY'].mean()
     st.markdown(f'<div class="kpi-card"><h3>Average Salary</h3><p>${avg_salary:,.2f}</p></div>', unsafe_allow_html=True)
@@ -142,7 +142,7 @@ with pie_col:
 
 # Histogram for Quantitative Variable
 with hist_col:
-    st.markdown("#### Quantitative Histogram")
+    st.markdown("#### Quantitative Predictors")
     # Select a Quantitative Variable for Histogram
     selected_quant_var = st.selectbox("Select a Quantitative Variable for Histogram", quantitative_vars, index=quantitative_vars.index('LTV'))
     
