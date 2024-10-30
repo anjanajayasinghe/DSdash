@@ -205,7 +205,7 @@ with scatter_col:
     )
     
     st.plotly_chart(scatter_custom, use_container_width=True)
-st.markdown("<h2 style='text-align: center;'> Insurance Purchanse Decision Analysiss</h2>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center;'> Insurance Purchase Decision Analysis</h2>", unsafe_allow_html=True)
 
 # Create two columns: one for the Stacked Bar Chart and one for the Box Plot
 box_col, bar_col = st.columns(2)
